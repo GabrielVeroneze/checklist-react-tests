@@ -2,7 +2,13 @@ import { useEffect, useRef } from 'react'
 import './dialog.style.css'
 import { IconClose } from '../icons'
 
-export const Dialog = ({ isOpen, onClose, children }) => {
+interface DialogProps {
+    isOpen: boolean
+    onClose: () => void
+    children: React.ReactNode
+}
+
+export const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
     const refDialog = useRef()
 
     useEffect(() => {

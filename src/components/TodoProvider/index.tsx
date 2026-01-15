@@ -7,7 +7,11 @@ import {
 } from '../../services/TodoService'
 import { TodoContext } from './TodoContext'
 
-export const TodoProvider = ({ children }) => {
+interface TodoProviderProps {
+    children: React.ReactNode
+}
+
+export const TodoProvider = ({ children }: TodoProviderProps) => {
     const [todos, setTodos] = useState([])
     const [showDialog, setShowDialog] = useState(false)
     const [selectedTodo, setSelectedTodo] = useState(null)

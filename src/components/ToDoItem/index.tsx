@@ -2,8 +2,13 @@ import { use } from 'react'
 import { IconPencil, IconTrash } from '../icons'
 import { TodoContext } from '../TodoProvider/TodoContext'
 import './todo-item.style.css'
+import type { Todo } from '@/types/Todo'
 
-export function ToDoItem({ item }) {
+interface ToDoItemProps {
+    item: Todo
+}
+
+export function ToDoItem({ item }: ToDoItemProps) {
     const { toggleItemCompleted, removeTodo, selectTodoForEdit } =
         use(TodoContext)
 

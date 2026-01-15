@@ -4,7 +4,11 @@ import TextInput from '../TextInput'
 import './form-todo.style.css'
 import { TodoContext } from '../TodoProvider/TodoContext'
 
-const FormToDo = ({ onSubmit }) => {
+interface FormToDoProps {
+    onSubmit: (formData: FormData) => void | Promise<void>
+}
+
+const FormToDo = ({ onSubmit }: FormToDoProps) => {
     const { selectedTodo } = use(TodoContext)
 
     return (
