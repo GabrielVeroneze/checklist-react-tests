@@ -9,9 +9,11 @@ interface DialogProps {
 }
 
 export const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
-    const refDialog = useRef()
+    const refDialog = useRef<HTMLDialogElement | null>(null)
 
     useEffect(() => {
+        if (!refDialog.current) return
+
         if (isOpen) {
             refDialog.current.showModal()
         } else {
@@ -21,7 +23,10 @@ export const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
 
     useEffect(() => {
         const dialog = refDialog.current
+        if (!dialog) return
+
         dialog.addEventListener('close', onClose)
+
         return () => {
             dialog.removeEventListener('close', onClose)
         }

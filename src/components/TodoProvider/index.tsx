@@ -6,15 +6,16 @@ import {
     updateTodo,
 } from '../../services/TodoService'
 import { TodoContext } from './TodoContext'
+import type { Todo } from '@/types/Todo'
 
 interface TodoProviderProps {
     children: React.ReactNode
 }
 
 export const TodoProvider = ({ children }: TodoProviderProps) => {
-    const [todos, setTodos] = useState([])
-    const [showDialog, setShowDialog] = useState(false)
-    const [selectedTodo, setSelectedTodo] = useState(null)
+    const [todos, setTodos] = useState<Todo[]>([])
+    const [showDialog, setShowDialog] = useState<boolean>(false)
+    const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null)
 
     useEffect(() => {
         const fetchTodos = async () => {
@@ -25,11 +26,17 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
         fetchTodos()
     }, [])
 
-    const upsertTodo = async (formData) => {
+    const upsertTodo = async (formData: FormData): Promise<void> => {
+        const description = formData.get('description')
+
+        if (!description || typeof description !== 'string') {
+            return
+        }
+
         if (selectedTodo) {
             const updatedTodo = {
                 ...selectedTodo,
-                description: formData.get('description'),
+                description,
             }
 
             setTodos((oldState) =>
@@ -41,7 +48,7 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
             await updateTodo(updatedTodo)
         } else {
             const newTodo = {
-                description: formData.get('description'),
+                description,
                 createdAt: new Date().toISOString(),
                 completed: false,
             }
@@ -53,12 +60,12 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
         closeTodoFormModal()
     }
 
-    const removeTodo = async (todo) => {
+    const removeTodo = async (todo: Todo): Promise<void> => {
         setTodos((oldState) => oldState.filter((t) => t.id !== todo.id))
         await deleteTodo(todo.id)
     }
 
-    const toggleItemCompleted = (todo) => {
+    const toggleItemCompleted = (todo: Todo): void => {
         setTodos((oldState) =>
             oldState.map((item) =>
                 item.id === todo.id
@@ -68,16 +75,16 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
         )
     }
 
-    const openTodoFormModal = () => {
+    const openTodoFormModal = (): void => {
         setShowDialog(true)
     }
 
-    const closeTodoFormModal = () => {
+    const closeTodoFormModal = (): void => {
         setShowDialog(false)
         setSelectedTodo(null)
     }
 
-    const selectTodoForEdit = (todo) => {
+    const selectTodoForEdit = (todo: Todo): void => {
         setSelectedTodo(todo)
         openTodoFormModal()
     }
