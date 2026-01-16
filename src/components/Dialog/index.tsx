@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { IconClose } from '@/components/icons'
-import './dialog.module.css'
+import styles from './dialog.module.css'
 
 interface DialogProps {
     isOpen: boolean
@@ -34,9 +34,13 @@ const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
 
     return (
         <>
-            <dialog ref={refDialog} className="dialog">
-                <div className="actions">
-                    <button autoFocus onClick={onClose} className="btn-close">
+            <dialog ref={refDialog} className={styles.dialog}>
+                <div className={styles.actions}>
+                    <button
+                        autoFocus
+                        onClick={onClose}
+                        className={styles['btn-close']}
+                    >
                         <IconClose />
                     </button>
                 </div>

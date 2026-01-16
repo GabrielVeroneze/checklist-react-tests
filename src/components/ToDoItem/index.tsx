@@ -1,7 +1,7 @@
 import { useTodo } from '@/context/todo/useTodo'
 import { IconPencil, IconTrash } from '@/components/icons'
 import type { Todo } from '@/types/Todo'
-import './todo-item.module.css'
+import styles from './todo-item.module.css'
 
 interface ToDoItemProps {
     item: Todo
@@ -10,30 +10,34 @@ interface ToDoItemProps {
 const ToDoItem = ({ item }: ToDoItemProps) => {
     const { toggleItemCompleted, removeTodo, selectTodoForEdit } = useTodo()
 
-    const styles = ['todo-item']
+    const itemStyles = [styles['todo-item']]
+
     if (item.completed) {
-        styles.push('completed')
+        itemStyles.push(styles.completed)
     }
 
     return (
-        <li className={styles.join(' ')}>
-            <p className="date">
+        <li className={itemStyles.join(' ')}>
+            <p className={styles.date}>
                 {new Date(item.createdAt).toLocaleDateString('pt-BR')}
             </p>
-            <div className="details">
+            <div className={styles.details}>
                 <input
                     type="checkbox"
-                    className="checkbox"
+                    className={styles.checkbox}
                     defaultChecked={item.completed}
                     onClick={() => toggleItemCompleted(item)}
                 />
-                <p className="description">{item.description}</p>
-                <div className="actions">
-                    <button className="btn" onClick={() => removeTodo(item)}>
+                <p className={styles.description}>{item.description}</p>
+                <div className={styles.actions}>
+                    <button
+                        className={styles.btn}
+                        onClick={() => removeTodo(item)}
+                    >
                         <IconTrash />
                     </button>
                     <button
-                        className="btn"
+                        className={styles.btn}
                         onClick={() => selectTodoForEdit(item)}
                     >
                         <IconPencil />

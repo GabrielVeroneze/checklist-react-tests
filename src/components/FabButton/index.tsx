@@ -1,4 +1,4 @@
-import './fab-button.module.css'
+import styles from './fab-button.module.css'
 
 interface FabButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
@@ -6,7 +6,7 @@ interface FabButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const FabButton = ({ children, ...rest }: FabButtonProps) => {
     return (
-        <button className="fab" {...rest}>
+        <button className={styles.fab} {...rest}>
             {children}
         </button>
     )
