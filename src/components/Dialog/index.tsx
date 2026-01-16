@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import './dialog.style.css'
-import { IconClose } from '../icons'
+import { IconClose } from '@/components/icons'
+import './dialog.module.css'
 
 interface DialogProps {
     isOpen: boolean

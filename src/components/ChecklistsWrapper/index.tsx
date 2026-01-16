@@ -1,4 +1,4 @@
-import './checklists-wrapper.style.css'
+import './checklists-wrapper.module.css'
 
 interface ChecklistsWrapperProps {
     children: React.ReactNode

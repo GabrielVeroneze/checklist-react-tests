@@ -1,4 +1,4 @@
-import './todo-list.style.css'
+import './todo-list.module.css'
 
 interface ToDoListProps {
     children: React.ReactNode

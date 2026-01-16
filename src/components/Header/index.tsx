@@ -1,4 +1,4 @@
-import './header.style.css'
+import './header.module.css'
 
 interface HeaderProps {
     children: React.ReactNode

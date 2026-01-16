@@ -1,8 +1,8 @@
 import { use } from 'react'
-import { IconPencil, IconTrash } from '../icons'
-import { TodoContext } from '../TodoProvider/TodoContext'
-import './todo-item.style.css'
+import { TodoContext } from '@/components/TodoProvider/TodoContext'
+import { IconPencil, IconTrash } from '@/components/icons'
 import type { Todo } from '@/types/Todo'
+import './todo-item.module.css'
 
 interface ToDoItemProps {
     item: Todo

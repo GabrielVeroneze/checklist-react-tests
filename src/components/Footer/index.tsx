@@ -1,4 +1,4 @@
-import './footer.style.css'
+import './footer.module.css'
 
 interface FooterProps {
     children: React.ReactNode

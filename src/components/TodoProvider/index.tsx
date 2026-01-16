@@ -4,7 +4,7 @@ import {
     deleteTodo,
     getTodos,
     updateTodo,
-} from '../../services/TodoService'
+} from '@/services/TodoService'
 import { TodoContext } from './TodoContext'
 import type { Todo } from '@/types/Todo'
 

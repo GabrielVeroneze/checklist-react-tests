@@ -1,4 +1,4 @@
-import './heading.style.css'
+import './heading.module.css'
 
 interface HeadingProps {
     children: React.ReactNode

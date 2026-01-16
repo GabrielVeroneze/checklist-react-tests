@@ -1,8 +1,8 @@
 import { use } from 'react'
-import Button from '../Button'
-import TextInput from '../TextInput'
-import './form-todo.style.css'
-import { TodoContext } from '../TodoProvider/TodoContext'
+import { TodoContext } from '@/components/TodoProvider/TodoContext'
+import TextInput from '@/components/TextInput'
+import Button from '@/components/Button'
+import './form-todo.module.css'
 
 interface FormToDoProps {
     onSubmit: (formData: FormData) => void | Promise<void>

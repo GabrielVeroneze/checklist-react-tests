@@ -1,4 +1,4 @@
-import './sub-heading.style.css'
+import './sub-heading.module.css'
 
 interface SubHeadingProps {
     children: React.ReactNode

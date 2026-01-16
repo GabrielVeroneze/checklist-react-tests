@@ -1,7 +1,7 @@
 import type { Todo } from '@/types/Todo'
-import { SubHeading } from '../SubHeading'
-import { ToDoItem } from '../ToDoItem'
-import { ToDoList } from '../ToDoList'
+import SubHeading from '@/components/SubHeading'
+import ToDoItem from '@/components/ToDoItem'
+import ToDoList from '@/components/ToDoList'
 
 interface ToDoGroupProps {
     heading: string
