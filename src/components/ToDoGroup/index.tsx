@@ -13,8 +13,8 @@ const ToDoGroup = ({ todos, heading }: ToDoGroupProps) => {
         <>
             <SubHeading>{heading}</SubHeading>
             <ToDoList>
-                {todos.map(function (t) {
-                    return <ToDoItem key={t.id} item={t} />
+                {todos.map((todo) => {
+                    return <ToDoItem key={todo.id} item={todo} />
                 })}
             </ToDoList>
         </>
