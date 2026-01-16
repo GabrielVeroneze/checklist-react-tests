@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 import type { Todo } from '@/types/Todo'
 
-interface TodoContextData {
+interface TodoContextType {
     todos: Todo[]
     upsertTodo: (formData: FormData) => Promise<void>
     removeTodo: (todo: Todo) => Promise<void>
@@ -13,7 +13,7 @@ interface TodoContextData {
     selectedTodo: Todo | null
 }
 
-const defaultValue: TodoContextData = {
+const defaultValue: TodoContextType = {
     todos: [],
     upsertTodo: async () => {},
     removeTodo: async () => {},
@@ -25,5 +25,5 @@ const defaultValue: TodoContextData = {
     selectedTodo: null,
 }
 
-export const TodoContext = createContext<TodoContextData>(defaultValue)
+export const TodoContext = createContext<TodoContextType>(defaultValue)
 TodoContext.displayName = 'Todo'
