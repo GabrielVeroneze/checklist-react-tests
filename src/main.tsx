@@ -1,13 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { TodoProvider } from '@/components/TodoProvider'
+import { ContextProvider } from '@/context/provider/ContextProvider'
 import AppRoutes from '@/routes'
 import '@/styles/global.css'
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <TodoProvider>
+        <ContextProvider>
             <AppRoutes />
-        </TodoProvider>
+        </ContextProvider>
     </StrictMode>,
 )
