@@ -1,5 +1,4 @@
-import { use } from 'react'
-import { TodoContext } from '@/components/TodoProvider/TodoContext'
+import { useTodo } from '@/context/todo/useTodo'
 import TextInput from '@/components/TextInput'
 import Button from '@/components/Button'
 import './form-todo.module.css'
@@ -9,7 +8,7 @@ interface FormToDoProps {
 }
 
 const FormToDo = ({ onSubmit }: FormToDoProps) => {
-    const { selectedTodo } = use(TodoContext)
+    const { selectedTodo } = useTodo()
 
     return (
         <form action={onSubmit} className="form">

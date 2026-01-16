@@ -1,6 +1,5 @@
-import { use } from 'react'
+import { useTodo } from '@/context/todo/useTodo'
 import { IconPlus, IconSchool } from '@/components/icons'
-import { TodoContext } from '@/components/TodoProvider/TodoContext'
 import ChecklistsWrapper from '@/components/ChecklistsWrapper'
 import Container from '@/components/Container'
 import Dialog from '@/components/Dialog'
@@ -18,7 +17,7 @@ const Home = () => {
         openTodoFormModal,
         closeTodoFormModal,
         isModalOpen,
-    } = use(TodoContext)
+    } = useTodo()
 
     return (
         <main>

@@ -1,5 +1,4 @@
-import { use } from 'react'
-import { TodoContext } from '@/components/TodoProvider/TodoContext'
+import { useTodo } from '@/context/todo/useTodo'
 import { IconPencil, IconTrash } from '@/components/icons'
 import type { Todo } from '@/types/Todo'
 import './todo-item.module.css'
@@ -9,8 +8,7 @@ interface ToDoItemProps {
 }
 
 const ToDoItem = ({ item }: ToDoItemProps) => {
-    const { toggleItemCompleted, removeTodo, selectTodoForEdit } =
-        use(TodoContext)
+    const { toggleItemCompleted, removeTodo, selectTodoForEdit } = useTodo()
 
     const styles = ['todo-item']
     if (item.completed) {
