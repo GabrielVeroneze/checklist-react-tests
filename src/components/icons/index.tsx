@@ -1,4 +1,4 @@
-export function IconSchool() {
+export const IconSchool = () => {
     return (
         <svg
             width="24"
@@ -15,7 +15,7 @@ export function IconSchool() {
     )
 }
 
-export function IconPencil() {
+export const IconPencil = () => {
     return (
         <svg
             width="16"
@@ -32,7 +32,7 @@ export function IconPencil() {
     )
 }
 
-export function IconTrash() {
+export const IconTrash = () => {
     return (
         <svg
             width="10"
@@ -49,7 +49,7 @@ export function IconTrash() {
     )
 }
 
-export function IconPlus() {
+export const IconPlus = () => {
     return (
         <svg
             width="14"
@@ -66,7 +66,7 @@ export function IconPlus() {
     )
 }
 
-export function IconClose() {
+export const IconClose = () => {
     return (
         <svg
             width="10"

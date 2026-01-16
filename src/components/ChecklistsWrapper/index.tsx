@@ -4,6 +4,8 @@ interface ChecklistsWrapperProps {
     children: React.ReactNode
 }
 
-export function ChecklistsWrapper({ children }: ChecklistsWrapperProps) {
+const ChecklistsWrapper = ({ children }: ChecklistsWrapperProps) => {
     return <section className="wrapper">{children}</section>
 }
+
+export default ChecklistsWrapper

@@ -8,7 +8,7 @@ interface ToDoItemProps {
     item: Todo
 }
 
-export function ToDoItem({ item }: ToDoItemProps) {
+const ToDoItem = ({ item }: ToDoItemProps) => {
     const { toggleItemCompleted, removeTodo, selectTodoForEdit } =
         use(TodoContext)
 
@@ -45,3 +45,5 @@ export function ToDoItem({ item }: ToDoItemProps) {
         </li>
     )
 }
+
+export default ToDoItem

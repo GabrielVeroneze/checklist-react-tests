@@ -4,6 +4,8 @@ interface ToDoListProps {
     children: React.ReactNode
 }
 
-export function ToDoList({ children }: ToDoListProps) {
+const ToDoList = ({ children }: ToDoListProps) => {
     return <ul className="todo-list">{children}</ul>
 }
+
+export default ToDoList

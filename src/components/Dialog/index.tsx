@@ -8,7 +8,7 @@ interface DialogProps {
     children: React.ReactNode
 }
 
-export const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
+const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
     const refDialog = useRef<HTMLDialogElement | null>(null)
 
     useEffect(() => {
