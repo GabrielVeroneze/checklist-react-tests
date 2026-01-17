@@ -1,6 +1,10 @@
 import { render } from '@testing-library/react'
 import Header from './index'
 
+jest.mock('./header.module.css', () => ({
+    header: 'header',
+}))
+
 describe('Header', () => {
     test('deveria renderizar o componente', () => {
         expect(<Header>Meu Header</Header>).toBeTruthy()
