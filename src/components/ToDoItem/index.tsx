@@ -1,5 +1,6 @@
 import { useTodo } from '@/context/todo/useTodo'
 import { IconPencil, IconTrash } from '@/components/icons'
+import { mergeClass } from './mergeClass'
 import type { Todo } from '@/types/Todo'
 import styles from './todo-item.module.css'
 
@@ -10,14 +11,10 @@ interface ToDoItemProps {
 const ToDoItem = ({ item }: ToDoItemProps) => {
     const { toggleItemCompleted, removeTodo, selectTodoForEdit } = useTodo()
 
-    const itemStyles = [styles['todo-item']]
-
-    if (item.completed) {
-        itemStyles.push(styles.completed)
-    }
+    const itemStyles = mergeClass(item.completed)
 
     return (
-        <li className={itemStyles.join(' ')}>
+        <li className={itemStyles}>
             <p className={styles.date}>
                 {new Date(item.createdAt).toLocaleDateString('pt-BR')}
             </p>
