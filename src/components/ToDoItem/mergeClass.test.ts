@@ -1,5 +1,10 @@
 import { mergeClass } from './mergeClass'
 
+jest.mock('./todo-item.module.css', () => ({
+    'todo-item': 'todo-item',
+    completed: 'completed',
+}))
+
 describe('./mergeClass.ts', () => {
     test('deveria retornar a classe base do todo-item quando o item não estiver completo', () => {
         const isItemCompleted = false
