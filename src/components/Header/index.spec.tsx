@@ -11,7 +11,9 @@ describe('Header', () => {
     })
 
     test('deveria renderizar o componente com a classe correta', () => {
-        const { container } = render(<Header>Meu Header</Header>)
+        const { container, debug } = render(<Header>Meu Header</Header>)
+
+        debug()
 
         expect(container.firstChild).toHaveClass('header')
     })
