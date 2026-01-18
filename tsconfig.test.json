@@ -7,6 +7,8 @@
         "**/*.test.ts",
         "**/*.spec.ts",
         "**/*.test.tsx",
-        "**/*.spec.tsx"
-    ]
+        "**/*.spec.tsx",
+        "jest-setup.ts"
+    ],
+    "exclude": []
 }
