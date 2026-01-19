@@ -15,4 +15,12 @@ describe('SubHeading', () => {
 
         expect(queryByText('Para estudar')).toBeNull()
     })
+
+    test('deveria renderizar a descrição após 500ms', async () => {
+        const { findByText } = render(<SubHeading>Para estudar</SubHeading>)
+
+        const description = await findByText('Para estudar')
+
+        expect(description).toBeInTheDocument()
+    })
 })
