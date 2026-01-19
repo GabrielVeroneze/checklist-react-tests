@@ -11,7 +11,11 @@ const FormToDo = ({ onSubmit }: FormToDoProps) => {
     const { selectedTodo } = useTodo()
 
     return (
-        <form action={onSubmit} className={styles.form}>
+        <form
+            aria-label="formulário de criação de item"
+            action={onSubmit}
+            className={styles.form}
+        >
             <TextInput
                 placeholder="Digite o item que deseja adicionar"
                 name="description"
