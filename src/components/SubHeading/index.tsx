@@ -5,6 +5,10 @@ interface SubHeadingProps {
 }
 
 const SubHeading = ({ children }: SubHeadingProps) => {
+    if (!children) {
+        return <></>
+    }
+
     return <h2 className={styles.subheading}>{children}</h2>
 }
 
