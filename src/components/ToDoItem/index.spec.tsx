@@ -3,10 +3,12 @@ import userEvent from '@testing-library/user-event'
 import ToDoItem from './index'
 
 const mockSelectTodoForEdit = jest.fn()
+const mockRemoveTodo = jest.fn()
 
 jest.mock('@/context/todo/useTodo', () => ({
     useTodo: () => ({
         selectTodoForEdit: mockSelectTodoForEdit,
+        removeTodo: mockRemoveTodo,
     }),
 }))
 
@@ -38,5 +40,20 @@ describe('ToDoItem', () => {
         await userEvent.click(button)
 
         expect(mockSelectTodoForEdit).toHaveBeenCalledWith(item)
+    })
+
+    test('deveria chamar a função removeTodo quando o botão de deletar for clicado', async () => {
+        const item = {
+            id: '8d1e',
+            description: 'Excluir Jest',
+            createdAt: '2025-08-22T11:26:54.388Z',
+            completed: false,
+        }
+        const { getByRole } = render(<ToDoItem item={item} />)
+
+        const button = getByRole('button', { name: /delete/i })
+        await userEvent.click(button)
+
+        expect(mockRemoveTodo).toHaveBeenCalledWith(item)
     })
 })
