@@ -29,12 +29,14 @@ const ToDoItem = ({ item }: ToDoItemProps) => {
                 <div className={styles.actions}>
                     <button
                         className={styles.btn}
+                        aria-label="delete"
                         onClick={() => removeTodo(item)}
                     >
                         <IconTrash />
                     </button>
                     <button
                         className={styles.btn}
+                        aria-label="edit"
                         onClick={() => selectTodoForEdit(item)}
                     >
                         <IconPencil />
