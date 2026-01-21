@@ -21,6 +21,36 @@ describe('ToDoGroup', () => {
         expect(queryAllByRole('listitem')).toHaveLength(0)
     })
 
+    test.each([
+        { isLoading: true, items: [] },
+        { isLoading: false, items: [] },
+        {
+            isLoading: false,
+            items: [
+                {
+                    id: '9d7a',
+                    description: 'Estudar React',
+                    createdAt: '2025-08-22T10:00:00.000Z',
+                    completed: false,
+                },
+            ],
+        },
+    ])(
+        'deveria renderizar o título da lista o tempo todo',
+        ({ isLoading, items }) => {
+            const { getByText, queryAllByRole } = render(
+                <ToDoGroup
+                    todos={items}
+                    isLoading={isLoading}
+                    heading="Visível o tempo todo"
+                />,
+            )
+
+            expect(getByText('Visível o tempo todo')).toBeInTheDocument()
+            expect(queryAllByRole('listitem')).toHaveLength(items.length)
+        },
+    )
+
     test('deveria renderizar o componente corretamente', () => {
         const { getByText, queryAllByRole } = render(
             <ToDoGroup todos={[]} isLoading={false} heading="Teste" />,
