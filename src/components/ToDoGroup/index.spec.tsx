@@ -2,9 +2,28 @@ import { render } from '@testing-library/react'
 import ToDoGroup from './index'
 
 describe('ToDoGroup', () => {
+    test('deveria renderizar a mensagem de carregando quando isLoading for true', () => {
+        const { getByText, queryAllByRole } = render(
+            <ToDoGroup todos={[]} isLoading={true} heading="Teste" />,
+        )
+
+        expect(getByText('Carregando...')).toBeInTheDocument()
+        expect(queryAllByRole('listitem')).toHaveLength(0)
+    })
+
+    test('deveria renderizar a mensagem de lista vazia quando não tiver itens', () => {
+        const { getByText, queryAllByRole, queryByText } = render(
+            <ToDoGroup todos={[]} isLoading={false} heading="Teste" />,
+        )
+
+        expect(getByText('Nenhum item encontrado')).toBeInTheDocument()
+        expect(queryByText('Carregando...')).toBeNull()
+        expect(queryAllByRole('listitem')).toHaveLength(0)
+    })
+
     test('deveria renderizar o componente corretamente', () => {
         const { getByText, queryAllByRole } = render(
-            <ToDoGroup todos={[]} heading="Teste" />,
+            <ToDoGroup todos={[]} isLoading={false} heading="Teste" />,
         )
 
         expect(getByText('Teste')).toBeInTheDocument()
@@ -27,7 +46,7 @@ describe('ToDoGroup', () => {
             },
         ]
         const { getByText, queryAllByRole } = render(
-            <ToDoGroup todos={items} heading="Teste" />,
+            <ToDoGroup todos={items} isLoading={false} heading="Teste" />,
         )
 
         const todoItem1 = getByText('Estudar React')
