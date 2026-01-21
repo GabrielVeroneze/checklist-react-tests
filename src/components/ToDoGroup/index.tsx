@@ -11,23 +11,28 @@ interface ToDoGroupProps {
 }
 
 const ToDoGroup = ({ todos, heading, isLoading }: ToDoGroupProps) => {
+    const renderContent = () => {
+        if (isLoading) {
+            return <p className={styles.text}>Carregando...</p>
+        }
+
+        if (todos.length === 0) {
+            return <p className={styles.text}>Nenhum item encontrado</p>
+        }
+
+        return (
+            <ToDoList>
+                {todos.map((todo) => {
+                    return <ToDoItem key={todo.id} item={todo} />
+                })}
+            </ToDoList>
+        )
+    }
+
     return (
         <>
             <SubHeading>{heading}</SubHeading>
-
-            {isLoading && <p className={styles.text}>Carregando...</p>}
-
-            {!isLoading && todos.length === 0 && (
-                <p className={styles.text}>Nenhum item encontrado</p>
-            )}
-
-            {!isLoading && todos.length > 0 && (
-                <ToDoList>
-                    {todos.map((todo) => {
-                        return <ToDoItem key={todo.id} item={todo} />
-                    })}
-                </ToDoList>
-            )}
+            {renderContent()}
         </>
     )
 }
