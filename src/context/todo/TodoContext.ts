@@ -11,6 +11,7 @@ interface TodoContextType {
     selectTodoForEdit: (todo: Todo) => void
     isModalOpen: boolean
     selectedTodo: Todo | null
+    isLoading: boolean
 }
 
 const defaultValue: TodoContextType = {
@@ -23,6 +24,7 @@ const defaultValue: TodoContextType = {
     selectTodoForEdit: () => {},
     isModalOpen: false,
     selectedTodo: null,
+    isLoading: false,
 }
 
 export const TodoContext = createContext<TodoContextType>(defaultValue)
