@@ -14,6 +14,7 @@ interface TodoProviderProps {
 
 export const TodoProvider = ({ children }: TodoProviderProps) => {
     const [todos, setTodos] = useState<Todo[]>([])
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [showDialog, setShowDialog] = useState<boolean>(false)
     const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null)
 
@@ -23,7 +24,12 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
             setTodos(todosFromApi)
         }
 
-        fetchTodos()
+        setIsLoading(true)
+
+        setTimeout(() => {
+            fetchTodos()
+            setIsLoading(false)
+        }, 5000)
     }, [])
 
     const upsertTodo = async (formData: FormData): Promise<void> => {
@@ -101,6 +107,7 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
                 isModalOpen: showDialog,
                 selectTodoForEdit,
                 selectedTodo,
+                isLoading,
             }}
         >
             {children}
