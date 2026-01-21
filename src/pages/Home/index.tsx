@@ -17,6 +17,7 @@ const Home = () => {
         openTodoFormModal,
         closeTodoFormModal,
         isModalOpen,
+        isLoading,
     } = useTodo()
 
     return (
@@ -32,10 +33,12 @@ const Home = () => {
                     <ToDoGroup
                         heading="Para estudar"
                         todos={todos.filter((t) => !t.completed)}
+                        isLoading={isLoading}
                     />
                     <ToDoGroup
                         heading="Concluído"
                         todos={todos.filter((t) => t.completed)}
+                        isLoading={isLoading}
                     />
                     <Footer>
                         <FabButton onClick={openTodoFormModal}>
