@@ -9,6 +9,7 @@ import FormToDo from '@/components/FormToDo'
 import Header from '@/components/Header'
 import Heading from '@/components/Heading'
 import ToDoGroup from '@/components/ToDoGroup'
+import ToDoCount from '@/components/ToDoCount'
 
 const Home = () => {
     const {
@@ -26,6 +27,7 @@ const Home = () => {
                 <Header>
                     <Heading>
                         <IconSchool /> Plano de estudos
+                        <ToDoCount />
                     </Heading>
                 </Header>
 
