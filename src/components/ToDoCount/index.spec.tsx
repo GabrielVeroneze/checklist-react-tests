@@ -16,4 +16,26 @@ describe('ToDoCount', () => {
 
         expect(count).toBeInTheDocument()
     })
+
+    test('deveria renderizar o contador com itens corretamente ', async () => {
+        mockGetTodos.mockResolvedValue([
+            {
+                id: '9f0d',
+                description: 'Teste 1',
+                createdAt: '2025-08-22T10:00:00.000Z',
+                completed: false,
+            },
+            {
+                id: '2d4g',
+                description: 'Teste 2',
+                createdAt: '2025-08-22T10:00:00.000Z',
+                completed: true,
+            },
+        ])
+        const { findByText } = render(<ToDoCount />)
+
+        const count = await findByText('2')
+
+        expect(count).toBeInTheDocument()
+    })
 })
