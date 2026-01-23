@@ -43,7 +43,10 @@ const Home = () => {
                         isLoading={isLoading}
                     />
                     <Footer>
-                        <FabButton onClick={openTodoFormModal}>
+                        <FabButton
+                            aria-label="criar item"
+                            onClick={openTodoFormModal}
+                        >
                             <IconPlus />
                         </FabButton>
                     </Footer>
