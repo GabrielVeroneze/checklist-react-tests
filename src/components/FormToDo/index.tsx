@@ -22,7 +22,7 @@ const FormToDo = ({ onSubmit }: FormToDoProps) => {
                 defaultValue={selectedTodo?.description}
                 required
             />
-            <Button>Salvar item</Button>
+            <Button type="submit">Salvar item</Button>
         </form>
     )
 }
